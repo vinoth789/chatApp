@@ -1,17 +1,14 @@
 <template>
   <div class="col-2 d-flex flex-column p-0 users" style="background-color: #9388AD;">
     <div class="d-flex flex-row justify-content-between mx-1 mb-4 m-2 w-90">
-        <h5 class="title">Users</h5>
+      <h5 class="title">Users</h5>
     </div>
     <div class="card" style="background-color: #341948">
-    <a
-      v-for="user in users"
-      :key="user.id"
-      class="profile p-1 m-2 mx-2 d-flex flex-row align-items-center gap-2">
-      <img :src="avatar" width="38" height="38" alt="avatar" />
-      <span class="fw-bold">{{ user.username }}</span>
-    </a>
-  </div>
+      <a v-for="user in users" :key="user.id" class="profile p-1 m-2 mx-2 d-flex flex-row align-items-center gap-2">
+        <img :src="avatar" width="38" height="38" alt="avatar" />
+        <span class="fw-bold">{{ user.username }}</span>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -31,7 +28,7 @@ export default {
       users,
     };
   },
-     }
+}
 
 </script>
 
@@ -42,7 +39,7 @@ export default {
 
 a {
   color: whitesmoke;
-} 
+}
 
 .title {
   font-weight: bold;

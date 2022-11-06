@@ -1,46 +1,39 @@
 <template>
-  <div
-    class="col-8 d-flex flex-column p-0 justify-content-between p-3 border border-top-0 chatScreen" style="background-color:lightgray;">
+  <div class="col-8 d-flex flex-column p-0 justify-content-between p-3 border border-top-0 chatScreen"
+    style="background-color:lightgray;">
     <div class="card">
-    <div class="d-flex flex-column justify-content-between chat" style="padding:10px;">
-      <div class="d-flex flex-column m-auto text-center justify-content-center mb-2 header">
-        <h2 class="fw-bold">Chats</h2>
-        <p class="text-muted" v-if="messages.length === 0">
-          Start chatting...
-        </p>
-      </div>
-      <div class="messages">
-        <div v-for="msg in messages"
-          :key="msg.id"
-          class="d-flex gap-2 w-75 mb-4 bubble"
-          :class="{ self: currentUser.id === msg.userId }">
-          <img :src="avatar" width="50" height="50" alt="avatar" />
-          <div class="text">
-            <div class="username fw-bold">{{ msg.username }}</div>
-            <div class="createdTimestamp">{{ msg.createdTimestamp }}</div>
-            <div class="chatfield p-2">
-              <span>{{ msg.message }}</span>
+      <div class="d-flex flex-column justify-content-between chat" style="padding:10px;">
+        <div class="d-flex flex-column m-auto text-center justify-content-center mb-2 header">
+          <h2 class="fw-bold">Chats</h2>
+          <p class="text-muted" v-if="messages.length === 0">
+            Start chatting...
+          </p>
+        </div>
+        <div class="messages">
+          <div v-for="msg in messages" :key="msg.id" class="d-flex gap-2 w-75 mb-4 bubble"
+            :class="{ self: currentUser.id === msg.userId }">
+            <img :src="avatar" width="50" height="50" alt="avatar" />
+            <div class="text">
+              <div class="username fw-bold">{{ msg.username }}</div>
+              <div class="createdTimestamp">{{ msg.createdTimestamp }}</div>
+              <div class="chatfield p-2">
+                <span>{{ msg.message }}</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="chatbox-wrapper" style="padding:10px;">
-      <input
-        type="text"
-        class="chatbox px-3 p-2"
-        placeholder="Send a message..."
-        @keyup.enter="userSendMsg"
-      />
+      <div class="chatbox-wrapper" style="padding:10px;">
+        <input type="text" class="chatbox px-3 p-2" placeholder="Send a message..." @keyup.enter="userSendMsg" />
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
 import { inject, onUpdated } from '@vue/runtime-core';
 import avatar from '../assets/avatar.svg';
-import { Chat} from '../models/Chat'
+import { Chat } from '../models/Chat'
 
 export default {
   name: 'ChatScreen',
@@ -126,6 +119,7 @@ h2 {
   border-radius: 10px;
   border-top-left-radius: 0;
 }
+
 .createdTimestamp {
   font-style: italic;
   color: grey;

@@ -1,13 +1,13 @@
 <template>
   <div class="jumbotron vh-100 d-flex flex-column">
-    <Navbar :hidden="!hidden"/>
+    <Navbar :hidden="!hidden" />
     <div class="main row h-100 m-0">
       <Login v-if="hidden" />
       {{ currentUser.value?.id }}
       <Suspense>
-        <template  v-if="!hidden">
-           <Users/> 
-           <ChatScreen />   
+        <template v-if="!hidden">
+          <Users />
+          <ChatScreen />
         </template>
       </Suspense>
     </div>

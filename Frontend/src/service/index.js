@@ -12,10 +12,8 @@ const url = `${import.meta.env.VITE_APP_API_URL}/api`;
 
 export default function () {
   const setUser = async (userId) => {
-    console.log("userId ** ", userId);
     try {
-      const currentUserData = await fetch(url+`/users/${userId}`).then((res) => res.json());
-      console.log("userId helloooo ", currentUserData);
+      const currentUserData = await fetch(url + `/users/${userId}`).then((res) => res.json());
       state.currentUser = currentUserData;
       sessionStorage.setItem('user', JSON.stringify(state.currentUser));
       getUsers();
@@ -27,8 +25,7 @@ export default function () {
 
   const getUsers = async () => {
     try {
-      const userData = await fetch(url+`/users`).then((res) => res.json());
-      console.log("users list ", userData);
+      const userData = await fetch(url + `/users`).then((res) => res.json());
       state.users = userData;
     } catch (err) {
       state.error = err;
@@ -36,23 +33,21 @@ export default function () {
   };
 
   const createUser = async (userData) => {
-    console.log("I am inside", userData);
-    try {    
-    const response = await fetch(url+`/users/register`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
-      body: JSON.stringify(userData)
-    });
+    try {
+      const response = await fetch(url + `/users/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+        body: JSON.stringify(userData)
+      });
 
-  } catch (err) {
-    state.error = err;
-  }
-};
+    } catch (err) {
+      state.error = err;
+    }
+  };
 
   const getMessages = async () => {
     try {
-      const messageData = await fetch(url+`/chats`).then((res) => res.json());
-      console.log("message list ", messageData);
+      const messageData = await fetch(url + `/chats`).then((res) => res.json());
       state.messages = messageData;
     } catch (err) {
       state.error = err;
@@ -60,12 +55,11 @@ export default function () {
   };
 
   const sendMessage = async (chatData) => {
-    console.log("I am inside", chatData);
     try {
-        const response = await fetch(url+`/chats/register`, {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
-          body: JSON.stringify(chatData)
+      const response = await fetch(url + `/chats/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+        body: JSON.stringify(chatData)
       });
       getMessages();
     } catch (err) {

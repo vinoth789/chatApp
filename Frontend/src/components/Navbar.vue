@@ -3,8 +3,8 @@
     <a href="/">
       <h2 class="title">Chat Room</h2>
     </a>
-    
-    <a v-if="hidden" class="username fw-bold"><img :src="avatarElite" width="25" height="25" alt="avatar" />{{ currentUser.username }}</a>
+    <a v-if="hidden" class="username fw-bold"><img :src="avatarElite" width="25" height="25" alt="avatar" />
+    {{currentUser.username}}</a>
     <a class="title" v-if="hidden" href="/"> Logout <img :src="logout" width="25" height="25" alt="avatar" /></a>
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
   },
   async setup() {
     const service = inject('service');
-    const { currentUser} = service();
+    const { currentUser } = service();
     return {
       logout,
       currentUser,
@@ -40,17 +40,19 @@ h2 {
 a:hover {
   color: whitesmoke;
 }
+
 .username {
-  margin-left: 72em;
+  margin-left: 68em;
   color: whitesmoke;
   padding: 0.5em 1em;
 }
+
 .title {
   color: whitesmoke;
   font-family: fangsong;
 }
+
 .navbar {
   padding: 0.5em 1em;
 }
-
 </style>
