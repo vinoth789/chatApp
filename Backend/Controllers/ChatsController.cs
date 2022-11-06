@@ -29,7 +29,7 @@ namespace Backend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var chats =  _chatService.GetAllChats();
+            var chats = _chatService.GetAllChats();
             return Ok(chats);
         }
 
@@ -41,8 +41,8 @@ namespace Backend.Controllers
             try
             {
                 // create chat
-                 _chatService.CreateChat(chat);
-                 return Ok();
+                _chatService.CreateChat(chat);
+                return Ok();
             }
             catch (AppException ex)
             {

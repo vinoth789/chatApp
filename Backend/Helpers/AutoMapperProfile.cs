@@ -10,11 +10,11 @@ namespace Backend.Helpers
         public AutoMapperProfile()
         {
 
-             CreateMap<User, UserModel>();
-             CreateMap<UserModel, User>();
-             
-             CreateMap<Chat, ChatModel>();
-             CreateMap<ChatModel, Chat>();
+            CreateMap<User, UserModel>();
+            CreateMap<UserModel, User>();
+
+            CreateMap<Chat, ChatModel>();
+            CreateMap<ChatModel, Chat>();
 
         }
     }

@@ -29,7 +29,7 @@ namespace Backend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var users =  _userService.GetAllUsers();
+            var users = _userService.GetAllUsers();
             var userModel = _mapper.Map<IList<UserModel>>(users);
             return Ok(userModel);
         }
@@ -42,7 +42,7 @@ namespace Backend.Controllers
             try
             {
                 // create user
-                 _userService.CreateUser(user);
+                _userService.CreateUser(user);
                 return Ok();
             }
             catch (AppException ex)
@@ -55,7 +55,7 @@ namespace Backend.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int Id)
         {
-            var user =  _userService.GetUserById(Id);
+            var user = _userService.GetUserById(Id);
             var userModel = _mapper.Map<UserModel>(user);
             return Ok(user);
         }

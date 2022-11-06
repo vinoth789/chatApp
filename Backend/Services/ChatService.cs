@@ -39,13 +39,14 @@ namespace Backend.Services
             return from chat in _context.ChatEntries
                    from user in _context.UserEntries
                    where chat.UserId == user.Id
-                   select new ChatUserModel {
-                    Id = chat.Id,
-                    UserId = chat.UserId,
-                    Message = chat.Message,
-                    CreatedTimestamp = chat.CreatedTimestamp,
-                    Username = user.Username
-                   }; 
+                   select new ChatUserModel
+                   {
+                       Id = chat.Id,
+                       UserId = chat.UserId,
+                       Message = chat.Message,
+                       CreatedTimestamp = chat.CreatedTimestamp,
+                       Username = user.Username
+                   };
         }
 
         public Chat GetChatById(int Id)
