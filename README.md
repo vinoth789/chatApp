@@ -8,6 +8,8 @@ This project is a simple chat application, where the user can login using their 
 of other users.
 The project consists of two parts, the Backend developed using ASP.NET Core 6 and the Frontend developed using Vue 3. 
 They are then containirised using Docker and served through Docker-compose.
+
+![](https://github.com/vinoth789/chatApp/blob/main/chatApp.gif)
 	
 ## Technologies
 Project is created with:
