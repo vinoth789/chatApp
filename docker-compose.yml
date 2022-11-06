@@ -1,0 +1,35 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - "1450:1450"
+    environment:
+      SA_PASSWORD: 2Secure*Password2
+      ACCEPT_EULA: "Y"
+
+  chat-api:
+    image: chat-api
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./Backend/Dockerfile
+    environment:
+      - ConnectionStrings__ChatRoom=Server=db;Database=chatRoom;Trusted_Connection=False;User Id=sa;Password=2Secure*Password2;MultipleActiveResultSets=true
+      - Logging__LogLevel__Default=Information
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+  chat-front-end:
+    image: chat-front-end
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./Frontend/Dockerfile
+      args:
+        VITE_APP_API_URL: http://localhost:8080
+    ports:
+      - "8088:80"
+    depends_on:
+      - chat-api
